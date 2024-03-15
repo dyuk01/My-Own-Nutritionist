@@ -3,7 +3,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 """
-    Calculate daily calorie intake using the Mifflin-St Jeor Equation.
+    Calculate bmr and daily calorie intake using the Mifflin-St Jeor Equation.
     
     :param weight_kg: Weight in kilograms.
     :param height_cm: Height in centimeters.
@@ -13,10 +13,16 @@ import matplotlib.pyplot as plt
     :return: Estimated daily calorie intake.
 """
 
-def calculate_daily_calories(weight_kg, height_cm, age, gender, activity_level):
+def bmr(weight_kg, height_cm, age, gender):
     if gender == 'male':
-        bmr = 10 * weight_kg + 6.25 * height_cm - 5 * age + 5
-    else:
-        bmr = 10 * weight_kg + 6.25 * height_cm - 5 * age - 161
-    
-    return bmr * activity_level
+        res = 10 * weight_kg + 6.25 * height_cm - 5 * age + 5
+    elif gender == 'female':
+        res = 10 * weight_kg + 6.25 * height_cm - 5 * age - 161
+    else :
+        print("Invalid Input\n")
+        return
+    return res
+
+def calories_intake(bmr, activity_level):
+    res = bmr * activity_level
+    return res
