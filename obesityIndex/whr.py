@@ -9,6 +9,6 @@ import matplotlib.pyplot as plt
     :param hip_circ_cm: Hip circumference in cm.
 """
 
-def calculate_daily_calories(waist_circ_cm, hip_circ_cm):
-    whr = waist_circ_cm / hip_circ_cm
-    return whr
+def whr(waist_circ_cm, hip_circ_cm):
+    res = waist_circ_cm / hip_circ_cm
+    return res
