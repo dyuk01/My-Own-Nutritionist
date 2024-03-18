@@ -1,12 +1,9 @@
 from openai import OpenAI
 client = OpenAI()
-
-completion = client.chat.completions.create(
-  model="gpt-3.5-turbo",
-  messages=[
-    {"role": "system", "content": "You are a poetic assistant, skilled in explaining complex programming concepts with creative flair."},
-    {"role": "user", "content": "Compose a poem that explains the concept of recursion in programming."}
-  ]
+  
+assistant = client.beta.assistants.create(
+  name="Math Tutor",
+  instructions="You are a personal math tutor. Write and run code to answer math questions.",
+  tools=[{"type": "code_interpreter"}],
+  model="gpt-4-turbo-preview",
 )
-
-print(completion.choices[0].message)
